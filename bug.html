@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = ""; // Clear the div content
+      document.getElementById("myDiv").style.display = "none"; // Hide the div
+      //Bug: The following line will throw an error because the element is already hidden
+      document.getElementById("myDiv").style.height = "0px";
+    }
+  </script>
+</body>
+</html>
